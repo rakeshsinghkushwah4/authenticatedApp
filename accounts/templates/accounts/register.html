@@ -1,0 +1,80 @@
+{% extends 'accounts/base.html' %}
+{% load static %}
+{% block body %}
+<!--Here we get form new app so folder name is just same of app name -->
+{% include "food_container/navbar.html" %}
+   <div style="margin-top:70px;">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url({% static 'account/images/d.jpg' %});">
+					<span class="login100-form-title-1">
+						Sign Up
+					</span>
+					 <p class="text-center p-5" style="color:#ffff"> Already have an accounts? <a href="{% url 'login' %}" style="color:#ffff00">Login</a></p>
+				</div>
+
+				<form class="login100-form" method="POST" enctype="multipart/form-data">
+					{% csrf_token %}
+
+					<div class="wrap-input100 m-b-26" >
+						{{form.name}}
+					</div>
+
+					<div class="wrap-input100 m-b-26" >
+						{{form.username}}
+					</div>
+
+					<div class="wrap-input100 m-b-18" >
+						{{form.password}}
+
+					</div>
+
+					<div class="wrap-input100 m-b-18" >
+						{{form.confirm_password}}
+					</div>
+
+					<div class=" m-b-18" >
+						<label class="my-2" for="gender" >Gender</label>
+						{{form.gender}}
+					</div>
+
+					<div class="wrap-input100 m-b-18">
+						{{form.phone}}
+					</div>
+
+					<div class=" m-b-18">
+						<label class="my-2" for="type" >Register Type</label>
+						{{form.register_type}}
+					</div>
+
+					<div class="m-b-18">
+						<label class="my-2" >Profile Picture</label>
+						{{form.profile_pic}}
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30 ">
+						<!--<div class="contact100-form-checkbox">-->
+							<!--&lt;!&ndash;<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">&ndash;&gt;-->
+							<!--&lt;!&ndash;<label class="label-checkbox100" for="ckb1">&ndash;&gt;-->
+								<!--&lt;!&ndash;Remember me&ndash;&gt;-->
+							<!--</label>-->
+						<!--</div>-->
+
+						<!--<div>-->
+							<!--<a href="#" class="txt1">-->
+								<!--Forgot Password?-->
+							<!--</a>-->
+						<!--</div>-->
+					</div>
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn">
+						Sign Up
+					</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+</div>
+{% include "food_container/base.html" %}
+{% endblock %}
